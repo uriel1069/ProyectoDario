@@ -24,6 +24,7 @@ class Personaje{
   boolean defactive;
   int explimit;
   int tonicd;
+  int alldefd;
   CoolDownTimer cdtturn;
   SpriteSet ssdown;
   SpriteSet ssleft;
@@ -33,6 +34,7 @@ class Personaje{
   int potn;
   int fpot;
   int tonic;
+  int alldef;
   int mx;
   int my;
   
@@ -56,8 +58,10 @@ class Personaje{
     potn=0;
     fpot=0;
     tonic=0;
+    alldef=0;
     alive=LIVE;
     tonicd=0;
+    alldefd=0;
     defactive=false;
     cdtturn=new CoolDownTimer(cf.cdtplayr);
     ssdown=new SpriteSet("sprite/personaje/worldmove/down/","down",".png",2,10,true,0);
@@ -144,16 +148,18 @@ class Personaje{
     image(imgpotn,360,470);
     image(imgfpot,440,470);
     image(imgtonic,520,470);
+    image(imgalldef,600,470);
     fill(255);
     text("$"+cash,280,510);
     text(potn,360,510);
     text(fpot,440,510);
     text(tonic,520,510);
+    text(alldef,600,510);
     textAlign(CENTER,CENTER);
   }
   
   int getItemInv(int i){
-    return (i==ITPTN?potn:(i==ITFPT?fpot:tonic));
+    return (i==ITPTN?potn:(i==ITFPT?fpot:(i==ITTNC?tonic:alldef)));
   }
   
   void updateInv(int i,boolean tm){
@@ -161,6 +167,7 @@ class Personaje{
       case ITPTN: potn+=tm?1:-1;break;
       case ITFPT: fpot+=tm?1:-1;break;
       case ITTNC: tonic+=tm?1:-1;break;
+      case ITALLDEF: alldef+=tm?1:-1;break;
     }
   }
   
@@ -169,7 +176,7 @@ class Personaje{
   }
   
   boolean hasItems(){
-    return potn>0 || fpot>0 || tonic>0;
+    return potn>0 || fpot>0 || tonic>0 ||alldef>0;
   }
   
   void consumeItem(int i){
@@ -182,6 +189,9 @@ class Personaje{
                   break;
       case ITTNC: tonic--;
                   activateTonic();
+                  break;            
+      case ITALLDEF: alldef--;
+                  activateAllDef();
                   break;            
     }
     sfxdrink.trigger();
@@ -199,6 +209,10 @@ class Personaje{
     tonicd=cf.tonicd;
     as.setActiveSpriteSet(tonicd);
   }
+  void activateAllDef(){
+    alldefd=cf.alldefd;
+     as.setActiveSpriteSet(alldefd);
+  }
   
   void herida(int d){
     hp-=hp-d>0?d:hp;
@@ -214,12 +228,19 @@ class Personaje{
   }
   
   int getDefDamage(){
-    return (def+(tonicd>0?cf.tonicb:0)+(defactive?1:0))*cf.pdeff;
+    return (def+(alldefd>0?cf.tonicb:0)+(defactive?1:0))*cf.pdeff;
   }
   
   void coolTonic(){
     if(tonicd>0){
       tonicd--;
+      as.prevSpriteSet();
+    }  
+  }
+  
+  void coolAlldef(){
+    if(alldefd>0){
+      alldefd--;
       as.prevSpriteSet();
     }  
   }

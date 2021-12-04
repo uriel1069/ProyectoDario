@@ -44,7 +44,8 @@ class ClickItem{
       case ITTNC: p=imgtonic; break;
       case ITATK: p=imgatk; break;
       case ITDEF: p=imgdef; break;
-      case ITHPP: p=imghpm;
+      case ITHPP: p=imghpm; break;
+      case ITALLDEF: p=imgalldef;
     }
     return p;
   }

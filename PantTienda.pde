@@ -11,6 +11,7 @@ class PantTienda{
   ClickItem citpotn;
   ClickItem citfpot;
   ClickItem cittonic;
+  ClickItem citalldef;
   PImage tienda;
   PImage imgtrademode;
   boolean trademode;
@@ -25,9 +26,11 @@ class PantTienda{
     citpotn=new ClickItem(300,270,cf.sp,cf.sp,ITPTN);
     citfpot=new ClickItem(400,270,cf.sp,cf.sp,ITFPT);
     cittonic=new ClickItem(500,270,cf.sp,cf.sp,ITTNC);
+    citalldef=new ClickItem(600,270,cf.sp,cf.sp,ITALLDEF);
     citpotn.toggleActive();
     citfpot.toggleActive();
     cittonic.toggleActive();
+    citalldef.toggleActive();
     tienda=loadImage("sprite/backgr/store_ok.png");
     imgtrademode=loadImage("sprite/items/trademode.png");
     trademode=TMBUY;
@@ -42,6 +45,7 @@ class PantTienda{
     citpotn.display();
     citfpot.display();
     cittonic.display();
+    citalldef.display();
     btncomp.display();
     btnvend.display();
     btncont.display();
@@ -53,6 +57,7 @@ class PantTienda{
     text("$"+(trademode?cf.potnv:cf.potnc),300,300);
     text("$"+(trademode?cf.fpotv:cf.fpotc),400,300);
     text("$"+(trademode?cf.tonicv:cf.tonicc),500,300);
+    text("$"+(trademode?cf.alldefv:cf.alldefc),600,300);
   }
   
   void toggleTM(){
@@ -87,6 +92,8 @@ class PantTienda{
       trade(ITFPT);
     if(cittonic.isClicked(x,y) && b==LEFT)
       trade(ITTNC);
+    if(citalldef.isClicked(x,y) && b==LEFT)
+      trade(ITALLDEF);
   }
   
   void keyProcess(char k){
@@ -99,6 +106,9 @@ class PantTienda{
                   break;
       case '3':   //compra/venta de tónico
                   trade(ITTNC);
+                  break;
+      case '4':   //compra/venta de tónico
+                  trade(ITALLDEF);
                   break;
       case ' ':   //cambio de modo de comercio
                   toggleTM();
@@ -135,11 +145,11 @@ class PantTienda{
   }
   
   int getItemVCost(int i){
-    return (i==ITPTN?cf.potnv:(i==ITFPT?cf.fpotv:cf.tonicv));
+    return (i==ITPTN?cf.potnv:(i==ITFPT?cf.fpotv:(i==ITTNC?cf.tonicv:cf.alldefv)));
   }
   
   int getItemCCost(int i){
-    return (i==ITPTN?cf.potnc:(i==ITFPT?cf.fpotc:cf.tonicc));
+    return (i==ITPTN?cf.potnc:(i==ITFPT?cf.fpotc:(i==ITTNC?cf.tonicc:cf.alldefc)));
   }
   
   void exitStore(){

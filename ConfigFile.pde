@@ -19,9 +19,11 @@ class ConfigFile{
   int potnv;
   int fpotv;
   int tonicv;
+  int alldefv;
   int potnc;
   int fpotc;
   int tonicc;
+  int alldefc;
   int cdtenemy;
   int cdtplayr;
   int heal;
@@ -43,6 +45,7 @@ class ConfigFile{
   int ss;
   int hs;
   int sp;
+  int alldefd;
   
   ConfigFile(){
     file=loadStrings("config.dat");
@@ -65,9 +68,11 @@ class ConfigFile{
       if(isData("potnv",i))    potnv=loadData(i);
       if(isData("fpotv",i))    fpotv=loadData(i);
       if(isData("tonicv",i))   tonicv=loadData(i);
+      if(isData("alldefv",i))   alldefv=loadData(i);
       if(isData("potnc",i))    potnc=loadData(i);
       if(isData("fpotc",i))    fpotc=loadData(i);
       if(isData("tonicc",i))   tonicc=loadData(i);
+      if(isData("alldefc",i))   alldefc=loadData(i);
       if(isData("cdtenemy",i)) cdtenemy=loadData(i);
       if(isData("cdtplayr",i)) cdtplayr=loadData(i);
       if(isData("heal",i))     heal=loadData(i);
@@ -78,6 +83,7 @@ class ConfigFile{
       if(isData("explup",i))   explup=loadData(i);
       if(isData("expinc",i))   expinc=loadData(i);
       if(isData("tonicd",i))   tonicd=loadData(i);
+      if(isData("alldefd",i))   alldefd=loadData(i);
       if(isData("hp",i))       hp=loadData(i);
       if(isData("tonicb",i))   tonicb=loadData(i);
       if(isData("startx",i))   stx=loadData(i);
