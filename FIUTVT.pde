@@ -70,6 +70,8 @@ final color COLENPS=color(0,200,0);
 final int EASY=0;
 final int MED=1;
 final int HARD=2;
+//final boolean TEAMCW = true; //true aparece personaje y false no esta warrior
+//final boolean TEAMCP = false; //true aparece personaje y false no esta paladin
 
 color paleta[];
 PImage terreno[];
@@ -128,6 +130,7 @@ PFont fbase;
 LangFiles lf;
 ConfigFile cf;
 Personaje pers;
+PersonajeTeam perst;
 EnemyData ed;
 TiraDados td;
 DatosDados dcbt;

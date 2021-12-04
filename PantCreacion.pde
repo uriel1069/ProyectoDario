@@ -130,10 +130,29 @@ class PantCreacion{
       gc.setPantAct(PNINT);
     }
     if(btnplay.isClicked(x,y) && b==LEFT){
+      
       pers=new Personaje(atk,def,hpm,cf.cash,cf.stx,cf.sty);
-      if(citpotn.marked) pers.potn++;
-      if(citfpot.marked) pers.fpot++;
-      if(cittonic.marked) pers.tonic++;
+      perst = new PersonajeTeam(atk,def,hpm,cf.cash,cf.stx,cf.sty);
+
+      if(citpotn.marked){
+
+        pers.potn++;
+        perst.potn++;
+
+      } 
+      if(citfpot.marked){
+
+        pers.fpot++;
+        perst.fpot++;
+
+      } ;
+      if(cittonic.marked){
+
+        pers.tonic++;
+        perst.tonic++;
+
+      } 
+
       rst=true;
       gc.musicManager(MSCOFF,false);
       gc.setPantAct(PNMAP);

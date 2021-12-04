@@ -3,7 +3,7 @@
 //fecha de creación: 11 de octubre de 2021
 //fecha de ultima modificación: 27 de noviembre de 2021
 //comentario:
-class Personaje{
+class PersonajeTeam{
   int atk;  //puntos de ataque
   int def;  //puntos de defensa
   int hp;   //puntos de vida actuales
@@ -25,20 +25,20 @@ class Personaje{
   int explimit;
   int tonicd;
   CoolDownTimer cdtturn;
-  SpriteSet ssdown;
+  //SpriteSet ssdown;
   SpriteSet ssleft;
-  SpriteSet ssup;
+  //SpriteSet ssup;
   AnimationStructure as;
-  boolean teamw;
+  boolean teamp;
+  
   //inventario
   int potn;
   int fpot;
   int tonic;
   int mx;
   int my;
- 
   
-  Personaje(int a,int d,int h,int c,int x,int y){
+  PersonajeTeam(int a,int d,int h,int c,int x,int y){
     mx=ml.getCols()-5;
     my=ml.getRows()-5;
     atk=a;
@@ -61,12 +61,11 @@ class Personaje{
     alive=LIVE;
     tonicd=0;
     defactive=false;
-    teamw = true;
-
+    teamp = false;
     cdtturn=new CoolDownTimer(cf.cdtplayr);
-    ssdown=new SpriteSet("sprite/personaje/worldmove/down/","down",".png",2,10,true,0);
-    ssleft=new SpriteSet("sprite/personaje/worldmove/left/","left",".png",2,10,true,0);
-    ssup=new SpriteSet("sprite/personaje/worldmove/up/","up",".png",2,10,true,0);
+    //ssdown=new SpriteSet("sprite/personaje/worldmove/down/","down",".png",2,10,true,0);
+    ssleft=new SpriteSet("sprite/personaje/chocobo/left/","left",".png",2,10,true,0);
+    //ssup=new SpriteSet("sprite/personaje/worldmove/up/","up",".png",2,10,true,0);
     as=new AnimationStructure();
     as.addSpriteSet(new SpriteSet("sprite/personaje/tonico/tonic1/","tonicX",".png",2,6,true,0));
     as.addSpriteSet(new SpriteSet("sprite/personaje/tonico/tonic2/","tonicX",".png",2,6,true,0));
@@ -74,7 +73,7 @@ class Personaje{
     as.addSpriteSet(new SpriteSet("sprite/personaje/tonico/tonic4/","tonicX",".png",2,6,true,0));
   }
   
-  void display(){
+  /*void display(){
     int xr,yr;
     xr=(px<=4)?px:(px<=mx)?5:px%10;
     yr=(py<=4)?py:(py<=my)?5:py%10;
@@ -90,7 +89,7 @@ class Personaje{
       setFillStroke(COLPERS);
       circle(cf.hs+xr*cf.ss,cf.hs+yr*cf.ss,cf.ss);
     }
-  }
+  }*/
   
   void battleDisplay(){
     if(gmode){
@@ -248,7 +247,7 @@ class Personaje{
 
   void toggleTeam(){
 
-    teamw =! teamw;
+      teamp =! teamp;
 
 
   }
