@@ -8,16 +8,20 @@ class PantLvlUp{
   ClickItem citatk;
   ClickItem citdef;
   ClickItem cithpm;
+  Boton btnnext;
   PImage imglvlup;
-  
+  boolean lvl;
   PantLvlUp(){
     citatk=new ClickItem(250,270,cf.sp*2,cf.sp*2,ITATK);
     citdef=new ClickItem(400,270,cf.sp*2,cf.sp*2,ITDEF);
     cithpm=new ClickItem(550,270,cf.sp*2,cf.sp*2,ITHPP);
+    btnnext = new Boton(400,700,200,100,35);
+    btnnext.activate();
     citatk.toggleActive();
     citdef.toggleActive();
     cithpm.toggleActive();
     imglvlup=loadImage("sprite/backgr/creation.jpg");
+    lvl = true;
   }
   
   void display(){
@@ -29,9 +33,23 @@ class PantLvlUp{
     citdef.display();
     cithpm.display();
     textAlign(CENTER,CENTER);
-    text(pers.atk,250,335);
-    text(pers.def,400,335);
-    text(pers.hpm,550,335);
+
+    if(lvl){
+      text(pers.atk,250,335);
+      text(pers.def,400,335);
+      text(pers.hpm,550,335);
+      pers.ssleft.display(400,550,200,100);
+      println(lvl);
+    }
+    else{
+      text(perst.atk,250,335);
+      text(perst.def,400,335);
+      text(perst.hpm,550,335);
+      perst.ssleft.display(400,550,200,100);
+      println(lvl);
+
+    }
+    
   }
   
   void mouseProcess(int x,int y, int b){
@@ -47,10 +65,37 @@ class PantLvlUp{
   }
   
   void addAttr(int a){
-    pers.addAttr(a);
-    sfxheal.trigger();
+    
+    if(lvl){
+
+      pers.addAttr(a);
+      togglePers();
+
+    }
+    else{
+
+      perst.addAttr(a);
+      togglePers();
+      sfxheal.trigger();
+      gameresult=pers.lvl==cf.lvlfin;
+      gc.musicManager(MSCOFF,gameresult);
+      gc.setPantAct(!gameresult?PNMAP:PNFIN);
+
+    }
+    
+    //btnnext.display();
+    /*sfxheal.trigger();
     gameresult=pers.lvl==cf.lvlfin;
     gc.musicManager(MSCOFF,gameresult);
     gc.setPantAct(!gameresult?PNMAP:PNFIN);
+    lvl = false;*/
+
   }
+
+  void togglePers(){
+
+    lvl =! lvl;
+
+  }
+
 }
