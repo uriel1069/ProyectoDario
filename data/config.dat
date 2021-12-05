@@ -1,5 +1,5 @@
 #language=1
-#langstr=36
+#langstr=43
 #ppa=4
 #minatr=2
 #maxatr=4
@@ -10,9 +10,11 @@
 #potnv=50
 #fpotv=120
 #tonicv=200
+#alldefv=300
 #potnc=40
 #fpotc=96
 #tonicc=160
+#alldefc=100
 #cdtenemy=240
 #cdtplayr=180
 #heal=25
@@ -34,3 +36,4 @@
 #ss=80
 #hs=40
 #sp=50
+#alldefd=4

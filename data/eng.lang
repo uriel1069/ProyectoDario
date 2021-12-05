@@ -31,6 +31,14 @@
 #30btnatk=Attack!
 #31btndef=Defend
 #32btnitem=Use Item
-#33txtitlft=Items Left:
-#34btnteam=Change team  
-#35btnnext=Siguiente 
+#33txtitlft=Items Left: 
+#33txtitlft=Items Left: 
+#34txtatk=Slash
+#35txtatkeffective=It's effective
+#36txtdefent=Resist
+#37poison= Damaged by poison!
+#38ice=Damaged by ice!
+#39fire=Damaged by fire!
+#40DefUP=Defense UP!
+#41btnteam=Change team  
+#42btnnext=Next

@@ -13,9 +13,21 @@ class PantCombate{
   Boton btndef;
   Boton btnitem;
   Boton btnteam;
+  TxtBatalla txt;
+  TxtBatalla txte;
+  TxtBatalla txtweak;
+  TxtBatalla txtpoison;
+  TxtBatalla txtice;
+  TxtBatalla txtfire;
+  TxtBatalla txtresist;
+  TxtBatalla txtresiste;
+  TxtBatalla txtdefup;
+  TxtBatalla txtdefup2;
+
   ClickItem citpotn;
   ClickItem citfptn;
   ClickItem cittonic;
+  ClickItem citalldef;
   int fasebatalla;
   boolean battleactive;
   boolean actionactive;
@@ -37,13 +49,24 @@ class PantCombate{
     woods=loadImage("sprite/backgr/bosque_ok.png");
     btnback=new Boton(400,700,200,100,23);
     btnatk=new Boton(150,550,150,80,30);
+    txt=new TxtBatalla(550,250,158,80,34);
+    txte=new TxtBatalla(300,250,158,80,34);
+    txtweak=new TxtBatalla(300,250,158,80,35);
+    txtpoison=new TxtBatalla(550,250,158,80,37);
+    txtice=new TxtBatalla(550,250,158,80,38);
+    txtfire=new TxtBatalla(550,250,158,80,39);
+    txtresist=new TxtBatalla(300,250,158,80,36);
+    txtresiste=new TxtBatalla(550,250,158,80,36);
+    txtdefup=new TxtBatalla(550,270,158,80,40);
+    txtdefup2=new TxtBatalla(550,250,158,80,40);
     btndef=new Boton(400,550,150,80,31);
     btnitem=new Boton(650,550,150,80,32);
-    btnteam = new Boton(150,700,165,140,34);
+    btnteam = new Boton(150,700,165,140,42);
     btnback.activate();
     citpotn=new ClickItem(600,625,cf.sp,cf.sp,ITPTN);
-    citfptn=new ClickItem(650,625,cf.sp,cf.sp,ITFPT);
-    cittonic=new ClickItem(700,625,cf.sp,cf.sp,ITTNC);
+    citfptn=new ClickItem(640,625,cf.sp,cf.sp,ITFPT);
+    cittonic=new ClickItem(680,625,cf.sp,cf.sp,ITTNC);
+    citalldef=new ClickItem(720,625,cf.sp,cf.sp,ITALLDEF);
     battleactive=BATTLEOFF;
     actionactive=ACTOFF;
     combatactive=false;
@@ -92,13 +115,16 @@ class PantCombate{
                   break;            
     }
   }
+ 
   
   void startBattle(){
+
     if(!battleactive){
       fasebatalla=FBINTRO;
       battleactive=BATTLEON;
       createEnemies();
-    }  
+    }
+    
   }
   
   void displayPlanoBatalla(){
@@ -123,12 +149,23 @@ class PantCombate{
   void displayPlanoControl(){
     btnback.display();
     btnatk.display();
+    txt.display();
+    txtweak.display();
+    txtresist.display();
+    txte.display();
+    txtpoison.display();
+    txtice.display();
+    txtfire.display();
+    txtresiste.display();
+    txtdefup.display();
+    txtdefup2.display();
     btndef.display();
     btnitem.display();
     btnteam.display();
     citpotn.display();
     citfptn.display();
     cittonic.display();
+    citalldef.display();
   }
   
   void displayEnemies(){
@@ -136,6 +173,7 @@ class PantCombate{
   }
   
   void mouseProcess(int x,int y,int b){
+
     if(btnback.isClicked(x,y) && b==LEFT){
       resetBattle();
       battleactive=BATTLEOFF;
@@ -144,15 +182,19 @@ class PantCombate{
     }
     if(actionactive && btnatk.isClicked(x,y) && b==LEFT){
       btnatk.toggleMarked();
+      txt.activate();
       combatAction(ACATK);
       iniciaAccion();
       println("boton de ataque");
     }
+
     if(actionactive && btndef.isClicked(x,y) && b==LEFT){
       btndef.toggleMarked();
+      txtdefup2.activate();
       combatAction(ACDEF);
       iniciaAccion();
     }
+    
     if(actionactive && btnteam.isClicked(x,y) && b==LEFT){
       
 
@@ -182,6 +224,8 @@ class PantCombate{
         citfptn.toggleActive();
       if(pers.tonic>0)  
         cittonic.toggleActive();
+      if(pers.alldef>0)
+        citalldef.toggleActive();
       combatAction(ACITM);
     }
     if(actionactive && citpotn.isClicked(x,y) && b==LEFT){
@@ -213,6 +257,11 @@ class PantCombate{
       perst.consumeItem(ITTNC);
       iniciaAccion();
     }
+    if(actionactive && citalldef.isClicked(x,y) && b==LEFT){
+      pers.consumeItem(ITALLDEF);
+      txtdefup.activate();
+      iniciaAccion();
+    }
   }
   
   void controlCombate(){
@@ -234,16 +283,21 @@ class PantCombate{
     int atkp;
     int defe;
     action=a;
+    
     switch(action){
       case ACATK: atkp= (!perst.teamp) ? pers.getAtkDamage()+td.tira2D6() : perst.getAtkDamage()+td.tira2D6(); 
                   defe=enemy.getDefDamage();
                   if(atkp>defe){
                     enemy.herida(atkp-defe);
+                    txtweak.activate();
                     sfxsword.trigger();
                     if(!enemy.isAlive()){
                       enemy.playSfx(ENFXDED);
                       resultVictory();                      
                     }
+                  }
+                  if(atkp<defe){
+                     txtresist.activate();
                   }
                   break;
       case ACDEF: if(!perst.teamp)
@@ -268,7 +322,7 @@ class PantCombate{
       setTurn(TURNP);
     }  
   }
-  
+
   void controlEspera(){
     if(!cdt.isActive())
       cdt.activate();
@@ -291,6 +345,7 @@ class PantCombate{
       enemy.activateCombat();
       playrlocked=false;
       enemylocked=false;
+      
     }
   }
   
@@ -306,6 +361,9 @@ class PantCombate{
       
     }  
     if(pers.cdtturn.isOff() && !enemylocked){
+      if(pers.alldefd>0){
+      txtdefup.activate();
+      }
       enemy.cdtturn.togglePause();
       pers.cdtturn.deactivate();
       toggleEnemyLocked();
@@ -366,29 +424,56 @@ class PantCombate{
   void enemyAction(){
     int atke=enemy.getAtkDamage()+td.tira2D6();
     int defp= (!perst.teamp) ? pers.getDefDamage() : perst.getDefDamage();
-    if(atke>defp){
 
+    txte.activate();
+
+    if(atke>defp ){
+
+      switch(pers.terr){
+
+          case CLBSQ:  txtpoison.activate();
+                      break;
+          case CLPST:  txtice.activate();
+                      break;
+          case CLTRR: txtfire.activate();
+                      break;            
+      }
+     
       if(!perst.teamp)
-      pers.herida(atke-defp);
+        pers.herida(atke-defp);
       else
-      perst.herida(atke-defp);
+        perst.herida(atke-defp);
+        
       enemy.playSfx(ENFXATK);
       if(!pers.isAlive() && !perst.isAlive()){
         resultDefeat();
         sfxdeath.trigger();
       }
     }
+    if(atke<defp){
+      txtresiste.activate();
+    }
     else
       sfxshild.trigger();
+    
     if(pers.defactive)
       pers.toggleDefense();
+
     if(perst.defactive)
       perst.toggleDefense();
   }
   
+  
   void endAction(){
     btnatk.deactive();
     btndef.deactive();
+    txt.deactive();
+    txtweak.deactive();
+    txtresist.deactive();
+    if(pers.alldefd==0){
+    txtdefup.deactive();
+    }
+    txtdefup2.deactive();
     btnitem.deactive();
     btnteam.deactive();
     toggleMarks();
@@ -402,6 +487,8 @@ class PantCombate{
     if(pers.tonicd>0 && perst.tonicd>0)
       pers.coolTonic();
       perst.coolTonic();
+    if(pers.alldefd>0)
+      pers.coolAlldef();
   }
   
   void enemyEndAction(){
@@ -410,6 +497,14 @@ class PantCombate{
       pers.cdtturn.togglePause();
     else
       perst.cdtturn.togglePause();
+
+    pers.cdtturn.togglePause();
+    perst.cdtturn.togglePause();
+    txte.deactive();
+    txtpoison.deactive();
+    txtice.deactive();
+    txtfire.deactive();
+    txtresiste.deactive();
     togglePlayrLocked();
     toggleAction();
   }
@@ -426,6 +521,7 @@ class PantCombate{
                   if(citpotn.active) citpotn.toggleActive();
                   if(citfptn.active) citfptn.toggleActive();
                   if(cittonic.active) cittonic.toggleActive();
+                  if(citalldef.active) citalldef.toggleActive();
     }
   }
    
@@ -438,6 +534,16 @@ class PantCombate{
     cdte.deactivate();
     btnatk.deactive();
     btndef.deactive();
+    txt.deactive();
+    txte.deactive();
+    txtpoison.deactive();
+    txtice.deactive();
+    txtfire.deactive();
+    txtresiste.deactive();
+    txtweak.deactive();
+    txtresist.deactive();
+    txtdefup.deactive();
+    txtdefup2.deactive();
     btnitem.deactive();
     btnteam.deactive();
     battleactive=BATTLEOFF;
