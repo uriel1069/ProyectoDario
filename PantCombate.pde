@@ -61,7 +61,7 @@ class PantCombate{
     txtdefup2=new TxtBatalla(550,250,158,80,40);
     btndef=new Boton(400,550,150,80,31);
     btnitem=new Boton(650,550,150,80,32);
-    btnteam = new Boton(150,700,165,140,42);
+    btnteam = new Boton(150,700,165,140,41);
     btnback.activate();
     citpotn=new ClickItem(600,625,cf.sp,cf.sp,ITPTN);
     citfptn=new ClickItem(640,625,cf.sp,cf.sp,ITFPT);
@@ -135,7 +135,7 @@ class PantCombate{
      
     }
     else{
-
+    
       perst.battleDisplay();
       
     }
@@ -199,19 +199,20 @@ class PantCombate{
       
 
       if(!perst.teamp){
-        
-       
+
+
         btnteam.toggleMarked();
         perst.toggleTeam(); //de false a true
         pers.toggleTeam(); // de true a false
         iniciaAccion();
-      }
+    }
       else{
-        
+
         btnteam.toggleMarked();
         perst.toggleTeam(); //de true a false
         pers.toggleTeam(); // de false a true
         iniciaAccion();
+        
       }
 
 
@@ -230,35 +231,29 @@ class PantCombate{
     }
     if(actionactive && citpotn.isClicked(x,y) && b==LEFT){
 
-      if(!perst.teamp) 
       pers.consumeItem(ITPTN); 
-      
-      else 
       perst.consumeItem(ITPTN);
-      
       iniciaAccion();
+
     }
     if(actionactive && citfptn.isClicked(x,y) && b==LEFT){
      
-      if(!perst.teamp) 
       pers.consumeItem(ITFPT);
-      
-      else
       perst.consumeItem(ITFPT);
-      
       iniciaAccion();
+
     }
+
     if(actionactive && cittonic.isClicked(x,y) && b==LEFT){
       
-
-      if(!perst.teamp)
       pers.consumeItem(ITTNC);
-      else
       perst.consumeItem(ITTNC);
       iniciaAccion();
     }
+
     if(actionactive && citalldef.isClicked(x,y) && b==LEFT){
       pers.consumeItem(ITALLDEF);
+      perst.consumeItem(ITALLDEF);
       txtdefup.activate();
       iniciaAccion();
     }
@@ -339,9 +334,9 @@ class PantCombate{
       combatactive=true;
       turn=TURNP;
       if(!perst.teamp) 
-      pers.activateCombat();
+        pers.activateCombat();
       else
-      perst.activateCombat();
+        perst.activateCombat();
       enemy.activateCombat();
       playrlocked=false;
       enemylocked=false;
@@ -374,6 +369,9 @@ class PantCombate{
       toggleAction();
     }
     if(perst.cdtturn.isOff() && !enemylocked){
+      if(pers.alldefd>0){
+      txtdefup.activate();
+      }
       enemy.cdtturn.togglePause();
       perst.cdtturn.deactivate();
       toggleEnemyLocked();
@@ -473,31 +471,36 @@ class PantCombate{
     if(pers.alldefd==0){
     txtdefup.deactive();
     }
+    if(perst.alldefd==0){
+    txtdefup.deactive();
+    }
     txtdefup2.deactive();
     btnitem.deactive();
     btnteam.deactive();
     toggleMarks();
-    if(!perst.teamp)
-      pers.cdtturn.activate();
-    else
-      perst.cdtturn.activate(); 
+  if(!perst.teamp){
+
+    pers.cdtturn.deactivate();
+    pers.cdtturn.activate();
+  }
+  else{
+
+    perst.cdtturn.deactivate(); 
+    perst.cdtturn.activate(); 
+  } 
     toggleAction();
     enemy.cdtturn.togglePause();
     toggleEnemyLocked();
-    if(pers.tonicd>0 && perst.tonicd>0)
+    if(pers.tonicd>0)
       pers.coolTonic();
       perst.coolTonic();
     if(pers.alldefd>0)
       pers.coolAlldef();
+      perst.coolAlldef();
   }
   
   void enemyEndAction(){
     enemy.cdtturn.activate();
-    if(!perst.teamp)
-      pers.cdtturn.togglePause();
-    else
-      perst.cdtturn.togglePause();
-
     pers.cdtturn.togglePause();
     perst.cdtturn.togglePause();
     txte.deactive();
@@ -527,8 +530,10 @@ class PantCombate{
    
   void resetBattle(){
     pers.cdtturn.deactivate();
+    perst.cdtturn.deactivate();
     enemy.cdtturn.deactivate();
     pers.tonicd=0;
+    perst.tonicd=0;
     cdt.deactivate();
     cdtp.deactivate();
     cdte.deactivate();
