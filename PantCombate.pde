@@ -197,7 +197,8 @@ class PantCombate{
     
     if(actionactive && btnteam.isClicked(x,y) && b==LEFT){
       
-
+      sfxteamc.trigger();
+      
       if(!perst.teamp){
 
 
