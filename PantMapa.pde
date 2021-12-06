@@ -6,30 +6,60 @@
 
 class PantMapa{
   int mapa[][];
+  int tile[][];
+  char bord[][];
   int mx; 
   int my;
   PImage imgsky;
   PImage imgcloud;
   PImage imgblur;
+  PImage imgtree3D;
+  PImage imgcact3D;
+  PImage imgflwr3D;
+  SpriteSet ssfw;
+  SpriteSet ssfp;
+  SpriteSet ssfd;
+  SpriteSet ssbw;
+  SpriteSet ssbp;
+  SpriteSet ssbd;
+  SpriteSet ssba;
+  
+  
   ClickItem citpotn;
   ClickItem citfpot;
   int clouds[][];
   boolean blur;
+  int xi;
+  int yi;
   
   PantMapa(){
-    mapa=ml.getMap();
+   mapa=ml.getMap();
+    tile=ml.getTileMap();
+    bord=ml.getBordMap();
     mx=ml.getCols()-10;
     my=ml.getRows()-10;
     imgsky=loadImage("sprite/sky.jpg");
-    imgcloud=loadImage("sprite/cloud.png");
+    imgcloud=loadImage("sprite/cloud with shadow.png");
     imgblur=loadImage("sprite/backgr/blur.jpg");
-    citpotn=new ClickItem(560,740,cf.sp,cf.sp,ITPTN);
-    citfpot=new ClickItem(610,740,cf.sp,cf.sp,ITFPT);
+    imgtree3D=loadImage("sprite/terreno/tree3D.png");
+    imgcact3D=loadImage("sprite/terreno/cact3D.png");
+    imgflwr3D=loadImage("sprite/terreno/flwr3D.png");
+    ssfw=new SpriteSet("sprite/terreno/flora/woods/","tree3D",".png",5,0,false,0);
+    ssfp=new SpriteSet("sprite/terreno/flora/prairie/","flwr3D",".png",8,0,false,0);
+    ssfd=new SpriteSet("sprite/terreno/flora/desert/","cact3D",".png",4,0,false,0);
+    ssbw=new SpriteSet("sprite/terreno/bords/woods/","bosque",".png",46,0,false,0);
+    ssbp=new SpriteSet("sprite/terreno/bords/prairie/","prairie",".png",46,0,false,0);
+    ssbd=new SpriteSet("sprite/terreno/bords/desert/","desert",".png",46,0,false,0);
+    ssba=new SpriteSet("sprite/terreno/bords/water/","agua",".png",46,0,false,0);
+    
+    
+    citpotn=new ClickItem(590,740,cf.sp,cf.sp,ITPTN);
+    citfpot=new ClickItem(670,740,cf.sp,cf.sp,ITFPT);
     citpotn.toggleActive();
     citfpot.toggleActive();
     blur=false;
-    clouds=new int[3][3];
-    for(int i=0;i<3;i++){
+    clouds=new int[5][3];
+    for(int i=0;i<5;i++){
       clouds[i][0]=-160-int(random(1,300));
       clouds[i][1]=int(random(40,700));
       clouds[i][2]=int(random(2,5));
@@ -44,6 +74,8 @@ class PantMapa{
     text(lf.showString(14),400,100);
     rectMode(CENTER);
     imageMode(CENTER);
+    xi=(pers.px<=4)?0:(pers.px<ml.getCols()-5)?pers.px-5:mx;
+    yi=(pers.py<=4)?0:(pers.py<ml.getRows()-5)?pers.py-5:my;
     displayPlanoMapa();
     displayPlanoPers();
     displayPlanoSky();
@@ -51,20 +83,56 @@ class PantMapa{
   }
   
   void displayPlanoMapa(){
-    int xi=(pers.px<=4)?0:(pers.px<ml.getCols()-5)?pers.px-5:mx;
-    int yi=(pers.py<=4)?0:(pers.py<ml.getRows()-5)?pers.py-5:my;
     for(int i=0;i<10;i++)
       for(int j=0;j<10;j++)
-        if(gmode)
-          image(terreno[mapa[yi+j][xi+i]],cf.hs+i*cf.ss,cf.hs+j*cf.ss);
+        if(gmode){
+          if(mapa[yi+j][xi+i]==CLTND)
+            image(terreno[mapa[yi+j][xi+i]],cf.hs+i*cf.ss,cf.hs+j*cf.ss);
+          else  
+            image(getBord(mapa[yi+j][xi+i],ml.getBordIndex(bord[yi+j][xi+i])),cf.hs+i*cf.ss,cf.hs+j*cf.ss); 
+        }  
         else{
           setFillStroke(paleta[mapa[yi+j][xi+i]]);
           rect(cf.hs+i*cf.ss,cf.hs+j*cf.ss,cf.ss,cf.ss);
         }
   }
   
+  PImage getBord(int t, int b){
+    PImage i=null;
+    switch(t){
+            case CLBSQ: i=ssbw.getSprite(b); break;
+            case CLPST: i=ssbp.getSprite(b); break;
+            case CLAWA: i=ssba.getSprite(b); break;
+            case CLTRR: i=ssbd.getSprite(b); break;
+            //case CLPNT: i=ssbb.getSprite(b); break;
+            //case CLKSA: i=ssbc.getSprite(b); ;
+          }
+    return i;
+  }
+  
   void displayPlanoPers(){
+    efecto3D(PRE);
     pers.display();
+    efecto3D(POST);
+  }
+  void efecto3D(boolean e){
+    int ir=pers.yr*10+pers.xr;
+    int xl;
+    int yl;
+    int p=(e?0:ir+1);
+    if(gmode)
+      while(p<(e?ir:100)){
+        xl=p%10;
+        yl=p/10;
+        if(mapa[yi+yl][xi+xl]!=CLAWA && mapa[yi+yl][xi+xl]!=CLTND){
+          switch(mapa[yi+yl][xi+xl]){
+            case CLBSQ: image(ssfw.getSprite(tile[yi+yl][xi+xl]),cf.hs+xl*cf.ss,cf.hs+yl*cf.ss); break;
+            case CLPST: image(ssfp.getSprite(tile[yi+yl][xi+xl]),cf.hs+xl*cf.ss,cf.hs+yl*cf.ss); break;
+            case CLTRR: image(ssfd.getSprite(tile[yi+yl][xi+xl]),cf.hs+xl*cf.ss,cf.hs+yl*cf.ss);
+          }
+        }
+        p++;
+      }
   }
   
   void displayPlanoSky(){
@@ -195,11 +263,11 @@ class PantMapa{
   boolean generaCombate(){
     boolean r=false;
     switch(pers.terr){
-      case CLBSQ: r=random(1,100)<cf.bsqodd;
+      case CLBSQ: r=random(1,1000)<cf.bsqodd;
                   break;
-      case CLPST: r=random(1,100)<cf.pstodd;
+      case CLPST: r=random(1,1000)<cf.pstodd;
                   break;
-      case CLTRR: r=random(1,100)<cf.trrodd;
+      case CLTRR: r=random(1,1000)<cf.trrodd;
                   break;            
     }
     return r;

@@ -40,6 +40,14 @@ class SpriteSet{
       frc++;
   }
   
+   void setSprite(int s){
+    spr=s;
+  }
+  
+  PImage getSprite(int s){
+    return sprt[s];
+  }
+  
   void display(int x,int y,int w,int h){
     image(sprt[spr],x,y,w,h);
     if(onan)

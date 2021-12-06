@@ -16,6 +16,8 @@ class Personaje{
   int lvl;  //nivel del personaje
   int px;   //posición x en el mapa
   int py;   //posición y en el mapa
+  int xr;
+  int yr;
   int cx;   //posición x en combate
   int cy;   //posición y en combate
   int terr; //indica el terreno que pisa el personaje
@@ -79,7 +81,7 @@ class Personaje{
   }
   
   void display(){
-    int xr,yr;
+    
     xr=(px<=4)?px:(px<=mx)?5:px%10;
     yr=(py<=4)?py:(py<=my)?5:py%10;
     if(gmode){
