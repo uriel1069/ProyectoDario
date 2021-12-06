@@ -124,6 +124,7 @@ AudioSample sfxroar;
 AudioSample sfxbite;
 AudioSample sfxgrito;
 AudioSample sfxgrwlf;
+AudioSample sfxteamc;
 
 Movie credits;
 
@@ -212,11 +213,13 @@ void loadAudio(){
   sfxcash=minim.loadSample("sound/fx/cash.mp3",512);
   sfxdrink=minim.loadSample("sound/fx/drink.mp3",512);
   sfxheal=minim.loadSample("sound/fx/heal.mp3",512);
+  sfxteamc=minim.loadSample("sound/fx/change-team.mp3",512);
   sfxfight.setGain(0.15);
   sfxclick.setGain(0.15);
   sfxcash.setGain(0.15);
   sfxdrink.setGain(0.15);
   sfxheal.setGain(0.15);
+  sfxteamc.setGain(0.15);
   //efectos de intro de enemigos
   sfxbones=minim.loadSample("sound/fx/intro/bones.mp3",512);
   sfximp=minim.loadSample("sound/fx/intro/imp.mp3",512);
@@ -259,7 +262,7 @@ void loadAudio(){
   msccrea=minim.loadFile("sound/music/creation.mp3");
   mscmundo=minim.loadFile("sound/music/mapa.mp3");
   mscstore=minim.loadFile("sound/music/store.mp3");
-  msccombt=minim.loadFile("sound/music/combate.mp3");
+  msccombt=minim.loadFile("sound/music/rude-buster.mp3");
   msccreds=minim.loadFile("sound/music/credits.mp3");
   mscdefet=minim.loadFile("sound/music/defeat.mp3");
   mscfanfr=minim.loadFile("sound/music/fanfare.mp3");

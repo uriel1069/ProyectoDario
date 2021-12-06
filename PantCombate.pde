@@ -198,6 +198,8 @@ class PantCombate{
     if(actionactive && btnteam.isClicked(x,y) && b==LEFT){
       
 
+      sfxteamc.trigger();
+      
       if(!perst.teamp){
 
 
@@ -214,7 +216,6 @@ class PantCombate{
         iniciaAccion();
         
       }
-
 
     }
     if(actionactive && btnitem.isClicked(x,y) && b==LEFT && pers.hasItems()){
