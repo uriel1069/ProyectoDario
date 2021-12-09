@@ -1,0 +1,56 @@
+----------- Inicia combate --------------
+ Daño causado: 3
+AtkBaseP=40,DefTE=30
+Resultado=EXITO
+Fin de registro
+
+----------- Inicia combate --------------
+ Daño causado: 9
+AtkBaseP=40,DefTE=30
+Resultado=EXITO
+Fin de registro
+
+Enemigo derrotado
+----------- Inicia combate --------------
+ Daño causado: 11
+AtkBaseP=40,DefTE=30
+Resultado=EXITO
+Fin de registro
+
+----------- Inicia combate --------------
+ Daño causado: 7
+AtkBaseP=40,DefTE=30
+Resultado=EXITO
+Fin de registro
+
+----------- Inicia combate --------------
+ Daño causado: 6
+AtkBaseP=40,DefTE=30
+Resultado=EXITO
+Fin de registro
+
+Enemigo derrotado
+----------- Inicia combate --------------
+ Daño causado: 8
+AtkBaseP=40,DefTE=30
+Resultado=EXITO
+Fin de registro
+
+Ataque aumentado 1 punto, nivel: 1
+Defensa aumentado 1 punto, nivel: 2
+Enemigo derrotado
+----------- Inicia combate --------------
+ Daño causado: 6
+AtkBaseP=70,DefTE=30
+Resultado=EXITO
+Fin de registro
+
+Compra:Tonico, saldo: 220
+Enemigo derrotado
+----------- Inicia combate --------------
+ Daño causado: 7
+AtkBaseP=70,DefTE=30
+Resultado=EXITO
+Fin de registro
+
+fin de test 12-8-2021 1 con 35

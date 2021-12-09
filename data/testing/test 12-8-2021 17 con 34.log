@@ -1,0 +1,47 @@
+
+------------------------ Inicia nuevo combate ---------------------------
+Terreno de combate: Praderas
+Oponente:   -------------------------------- p1-imp
+Nivel actual del enemigo: 2   -------- Nivel actual de personaje: 10
+Nivel de ataque de enemigo: 2   ----- Nivel de ataque de personaje 4
+Nivel de defensa de enemigo: 3   ---- Nivel de defensa de personaje: 3
+Nivel de vida de enemigo: 3   ------- Nivel de vida de personaje: 75
+
+Acción
+Daño causado: 7
+Vida restante de p1-imp: 22
+Base de ataque: 40 ------ Defensa de Enemigo: 30
+Resultado: Ataque exitoso
+Fin de registro
+
+
+Cambio de personaje: ------- Chocobo -------
+
+
+Cambio de personaje: ------- Don Jhon -------
+
+Acción
+Daño causado: 10
+Vida restante de p1-imp: 7
+Base de ataque: 40 ------ Defensa de Enemigo: 30
+Resultado: Ataque exitoso
+Fin de registro
+
+
+Cambio de personaje: ------- Chocobo -------
+
+
+Puntos de vida actuales: 75
+----- Victoria -----
+Fin del combate
+-------------------------------------------------------------------
+
+Enemigo derrotado
+Acción
+Daño causado: 7
+Vida restante de p1-imp: 0
+Base de ataque: 40 ------ Defensa de Enemigo: 30
+Resultado: Ataque exitoso
+Fin de registro
+
+fin de test 12-8-2021 17 con 35

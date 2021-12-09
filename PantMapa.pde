@@ -263,11 +263,11 @@ class PantMapa{
   boolean generaCombate(){
     boolean r=false;
     switch(pers.terr){
-      case CLBSQ: r=random(1,1000)<cf.bsqodd;
+      case CLBSQ: r=random(1,100)<cf.bsqodd;
                   break;
-      case CLPST: r=random(1,1000)<cf.pstodd;
+      case CLPST: r=random(1,100)<cf.pstodd;
                   break;
-      case CLTRR: r=random(1,1000)<cf.trrodd;
+      case CLTRR: r=random(1,100)<cf.trrodd;
                   break;            
     }
     return r;

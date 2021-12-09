@@ -1,0 +1,87 @@
+
+Inicio combate
+Terreno de combate: 3
+Oponente: p2-needler
+Nivel actual del enemigo: 2   -------- Nivel actual de personaje: 10
+Puntos de ataque de enemigo: 2   ----- Puntos de ataque personaje 4
+Puntos de defensa de enemigo: 3   ---- Puntos de defensa de enemigo: 3
+Puntos de vida de enemigo: 3   ---- Puntos de vida de enemigo: 75
+
+----------- Inicia combate --------------
+ Daño causado: 4
+AtkBaseP=40,DefTE=30
+Resultado=EXITO
+Fin de registro
+
+----------- Inicia combate --------------
+ Daño causado: 5
+AtkBaseP=40,DefTE=30
+Resultado=EXITO
+Fin de registro
+
+Enemigo derrotado
+----------- Inicia combate --------------
+ Daño causado: 7
+AtkBaseP=40,DefTE=30
+Resultado=EXITO
+Fin de registro
+
+
+Inicio combate
+Terreno de combate: 3
+Oponente: p1-imp
+Nivel actual del enemigo: 2   -------- Nivel actual de personaje: 10
+Puntos de ataque de enemigo: 2   ----- Puntos de ataque personaje 4
+Puntos de defensa de enemigo: 3   ---- Puntos de defensa de enemigo: 3
+Puntos de vida de enemigo: 3   ---- Puntos de vida de enemigo: 73
+
+----------- Inicia combate --------------
+ Daño causado: 5
+AtkBaseP=40,DefTE=30
+Resultado=EXITO
+Fin de registro
+
+----------- Inicia combate --------------
+ Daño causado: 5
+AtkBaseP=40,DefTE=30
+Resultado=EXITO
+Fin de registro
+
+Enemigo derrotado
+----------- Inicia combate --------------
+ Daño causado: 3
+AtkBaseP=40,DefTE=30
+Resultado=EXITO
+Fin de registro
+
+Salud aumentada 1 punto, nivel: 3
+Defensa aumentado 1 punto, nivel: 2
+
+Inicio combate
+Terreno de combate: 1
+Oponente: d1-scorpion
+Nivel actual del enemigo: 2   -------- Nivel actual de personaje: 11
+Puntos de ataque de enemigo: 2   ----- Puntos de ataque personaje 4
+Puntos de defensa de enemigo: 3   ---- Puntos de defensa de enemigo: 3
+Puntos de vida de enemigo: 3   ---- Puntos de vida de enemigo: 100
+
+----------- Inicia combate --------------
+ Daño causado: 8
+AtkBaseP=40,DefTE=30
+Resultado=EXITO
+Fin de registro
+
+----------- Inicia combate --------------
+ Daño causado: 10
+AtkBaseP=40,DefTE=30
+Resultado=EXITO
+Fin de registro
+
+Enemigo derrotado
+----------- Inicia combate --------------
+ Daño causado: 5
+AtkBaseP=40,DefTE=30
+Resultado=EXITO
+Fin de registro
+
+fin de test 12-8-2021 2 con 13

@@ -1,0 +1,83 @@
+
+----------- Inicia nuevo combate --------------
+Terreno de combate: Praderas
+Oponente: p2-needler
+Nivel actual del enemigo: 2   -------- Nivel actual de personaje: 10
+Puntos de ataque de enemigo: 2   ----- Puntos de ataque de personaje 4
+Puntos de defensa de enemigo: 3   ---- Puntos de defensa de personaje: 3
+Puntos de vida de enemigo: 3   ---- Puntos de vida de personaje: 75
+
+Cosumo de item
+Tonico utilizado
+Efecto: 4turnos restantes
+Fin de registro
+
+Cosumo de item
+Tonico utilizado
+Efecto: 4turnos restantes
+Fin de registro
+
+Acción
+Daño causado: 11
+AtkBaseP=60,DefTE=30
+Resultado=EXITO
+Fin de registro
+
+Fin de combate
+Victoria
+hp=73
+Fin de registro
+
+Enemigo derrotado
+Acción
+Daño causado: 5
+AtkBaseP=60,DefTE=30
+Resultado=EXITO
+Fin de registro
+
+
+----------- Inicia nuevo combate --------------
+Terreno de combate: Bosque
+Oponente: w1-insectus
+Nivel actual del enemigo: 2   -------- Nivel actual de personaje: 10
+Puntos de ataque de enemigo: 2   ----- Puntos de ataque de personaje 4
+Puntos de defensa de enemigo: 3   ---- Puntos de defensa de personaje: 3
+Puntos de vida de enemigo: 3   ---- Puntos de vida de personaje: 73
+
+Acción
+Daño causado: 8
+AtkBaseP=40,DefTE=30
+Resultado=EXITO
+Fin de registro
+
+Acción
+Daño causado: 3
+AtkBaseP=40,DefTE=30
+Resultado=EXITO
+Fin de registro
+
+Cosumo de item
+Pocion utilizado
+Efecto: Curacion
+Fin de registro
+
+Cosumo de item
+Pocion utilizado
+Efecto: Curacion
+Fin de registro
+
+Fin de combate
+Victoria
+hp=75
+Fin de registro
+
+Enemigo derrotado
+Acción
+Daño causado: 4
+AtkBaseP=40,DefTE=30
+Resultado=EXITO
+Fin de registro
+
+Ataque aumentado 1 punto, nivel: 1
+Salud aumentada 1 punto, nivel: 3
+fin de test 12-8-2021 12 con 4

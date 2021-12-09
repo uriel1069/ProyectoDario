@@ -1,0 +1,134 @@
+
+------------------------ Inicia nuevo combate ---------------------------
+Terreno de combate: Praderas
+Oponente: p2-needler
+Nivel actual del enemigo: 2   -------- Nivel actual de personaje: 10
+Puntos de ataque de enemigo: 2   ----- Puntos de ataque de personaje 4
+Puntos de defensa de enemigo: 3   ---- Puntos de defensa de personaje: 3
+Puntos de vida de enemigo: 3   ---- Puntos de vida de personaje: 75
+
+Acción
+Daño causado: 9
+Base de ataque: 40 ------ Defensa de Enemigo: 30
+Resultado: Ataque exitoso
+Fin de registro
+
+Cosumo de item
+Tonico utilizado
+Efecto: +4turnos restantes
+Fin de registro
+
+Cosumo de item
+Tonico utilizado
+Efecto: +4turnos restantes
+Fin de registro
+
+Fin de combate
+Victoria
+hp=73
+Fin de registro
+
+Enemigo derrotado
+Acción
+Daño causado: 9
+Base de ataque: 60 ------ Defensa de Enemigo: 30
+Resultado: Ataque exitoso
+Fin de registro
+
+
+------------------------ Inicia nuevo combate ---------------------------
+Terreno de combate: Bosque
+Oponente: w1-insectus
+Nivel actual del enemigo: 2   -------- Nivel actual de personaje: 10
+Puntos de ataque de enemigo: 2   ----- Puntos de ataque de personaje 4
+Puntos de defensa de enemigo: 3   ---- Puntos de defensa de personaje: 3
+Puntos de vida de enemigo: 3   ---- Puntos de vida de personaje: 73
+
+Cosumo de item
+Tonico utilizado
+Efecto: +4turnos restantes
+Fin de registro
+
+Cosumo de item
+Tonico utilizado
+Efecto: +4turnos restantes
+Fin de registro
+
+Acción
+Daño causado: 6
+Base de ataque: 60 ------ Defensa de Enemigo: 30
+Resultado: Ataque exitoso
+Fin de registro
+
+Cosumo de item
+Pocion utilizado
+Efecto: Curacion
+Fin de registro
+
+Cosumo de item
+Pocion utilizado
+Efecto: Curacion
+Fin de registro
+
+Fin de combate
+Victoria
+hp=75
+Fin de registro
+
+Enemigo derrotado
+Acción
+Daño causado: 9
+Base de ataque: 40 ------ Defensa de Enemigo: 30
+Resultado: Ataque exitoso
+Fin de registro
+
+Defensa aumentado 1 punto, nivel: 2
+Defensa aumentado 1 punto, nivel: 2
+Compra:Tonico, saldo: 80
+Venta:Pocion, saldo: 120
+
+------------------------ Inicia nuevo combate ---------------------------
+Terreno de combate: Desierto
+Oponente: d2-cavenaga
+Nivel actual del enemigo: 2   -------- Nivel actual de personaje: 11
+Puntos de ataque de enemigo: 2   ----- Puntos de ataque de personaje 4
+Puntos de defensa de enemigo: 3   ---- Puntos de defensa de personaje: 4
+Puntos de vida de enemigo: 3   ---- Puntos de vida de personaje: 75
+
+Cosumo de item
+Tonico utilizado
+Efecto: Curacion
+Fin de registro
+
+Cosumo de item
+Tonico utilizado
+Efecto: Curacion
+Fin de registro
+
+Acción
+Daño causado: 4
+Base de ataque: 40 ------ Defensa de Enemigo: 30
+Resultado: Ataque exitoso
+Fin de registro
+
+Acción
+Daño causado: 6
+Base de ataque: 40 ------ Defensa de Enemigo: 30
+Resultado: Ataque exitoso
+Fin de registro
+
+Fin de combate
+Victoria
+hp=75
+Fin de registro
+
+Enemigo derrotado
+Acción
+Daño causado: 2
+Base de ataque: 40 ------ Defensa de Enemigo: 30
+Resultado: Ataque exitoso
+Fin de registro
+
+Compra:Pocion, saldo: 110
+Compra:Pocion, saldo: 60
+fin de test 12-8-2021 14 con 9

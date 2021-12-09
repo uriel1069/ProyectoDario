@@ -55,12 +55,18 @@ class PantLvlUp{
   void mouseProcess(int x,int y, int b){
     if(citatk.isClicked(x,y) && b==LEFT){
       addAttr(ATATK);
+      bitacora.agregaDatosLn("------------------------ Level Up -------------------------");
+      bitacora.agregaDatosLn("1 punto de Ataque aumentado para el equipo, nivel: " + ATATK + "\n");
     }  
     if(citdef.isClicked(x,y) && b==LEFT){
       addAttr(ATDEF);
+      bitacora.agregaDatosLn("------------------------ Level Up -------------------------");
+      bitacora.agregaDatosLn("1 punto de Defensa aumentado para el equipo, nivel: " + ATDEF + "\n");
     }
     if(cithpm.isClicked(x,y) && b==LEFT){
       addAttr(ATHPM); 
+      bitacora.agregaDatosLn("------------------------ Level Up -------------------------");
+      bitacora.agregaDatosLn("1 punto de Salud aumentado para el equipo, nivel: " + ATHPM + "\n");
     }  
   }
   

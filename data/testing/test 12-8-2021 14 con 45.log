@@ -1,0 +1,81 @@
+
+------------------------ Inicia nuevo combate ---------------------------
+Terreno de combate: Desierto
+Oponente:   -------------------------------- d2-cavenaga
+Nivel actual del enemigo: 2   -------- Nivel actual de personaje: 10
+Puntos de ataque de enemigo: 2   ----- Puntos de ataque de personaje 4
+Puntos de defensa de enemigo: 3   ---- Puntos de defensa de personaje: 3
+Puntos de vida de enemigo: 3   ------- Puntos de vida de personaje: 75
+
+Acción
+Daño causado: 6
+Vida restante de d2-cavenaga: 27
+Base de ataque: 40 ------ Defensa de Enemigo: 30
+Resultado: Ataque exitoso
+Fin de registro
+
+Acción
+Daño causado: 6
+Vida restante de d2-cavenaga: 12
+Base de ataque: 40 ------ Defensa de Enemigo: 30
+Resultado: Ataque exitoso
+Fin de registro
+
+
+Puntos de vida actuales: 71
+----- Victoria -----
+Fin del combate
+-------------------------------------------------------------------
+
+Enemigo derrotado
+Acción
+Daño causado: 7
+Vida restante de d2-cavenaga: 0
+Base de ataque: 40 ------ Defensa de Enemigo: 30
+Resultado: Ataque exitoso
+Fin de registro
+
+Se compro:Poción de defensa, saldo: 40
+
+------------------------ Inicia nuevo combate ---------------------------
+Terreno de combate: Praderas
+Oponente:   -------------------------------- p1-imp
+Nivel actual del enemigo: 2   -------- Nivel actual de personaje: 10
+Puntos de ataque de enemigo: 2   ----- Puntos de ataque de personaje 4
+Puntos de defensa de enemigo: 3   ---- Puntos de defensa de personaje: 3
+Puntos de vida de enemigo: 3   ------- Puntos de vida de personaje: 71
+
+Acción
+Daño causado: 7
+Vida restante de p1-imp: 21
+Base de ataque: 40 ------ Defensa de Enemigo: 30
+Resultado: Ataque exitoso
+Fin de registro
+
+------------------------ Cosumo de item ------------------------
+Poción de defensa utilizado
+Efecto: Curacion
+Fin de registro
+
+------------------------ Cosumo de item ------------------------
+Poción de defensa utilizado
+Efecto: Curacion
+Fin de registro
+
+
+Puntos de vida actuales: 71
+----- Victoria -----
+Fin del combate
+-------------------------------------------------------------------
+
+Enemigo derrotado
+Acción
+Daño causado: 6
+Vida restante de p1-imp: 0
+Base de ataque: 40 ------ Defensa de Enemigo: 30
+Resultado: Ataque exitoso
+Fin de registro
+
+Ataque aumentado 1 punto, nivel: 1
+Salud aumentada 1 punto, nivel: 3
+fin de test 12-8-2021 14 con 47

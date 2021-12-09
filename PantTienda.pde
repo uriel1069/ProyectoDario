@@ -161,18 +161,19 @@ class PantTienda{
   //bitácora.
   
   String generaDatosCompra(int i){
-    String s="";
-    s="Compra:"+indicaItem(i)+", saldo: "+pers.cash;
+    String s="----------------------------------------------------------------\n";
+    s=s+"Se compro:"+indicaItem(i)+", saldo: "+pers.cash;
     return s;
   }
   
   String generaDatosVenta(int i){
-    String s="";
-    s="Venta:"+indicaItem(i)+", saldo: "+pers.cash;
+    String s="----------------------------------------------------------------\n";
+    s=s+"Se vendio:"+indicaItem(i)+", saldo: "+pers.cash;
     return s;
   }
   
   String indicaItem(int i){
-    return i==ITPTN?"Pocion":i==ITFPT?"Pocion llena":"Tonico";
+    return i==ITPTN?"Poción normal":i==ITFPT?"Poción llena":i==ITTNC?"Tonico de poder":"Poción de defensa";
+    
   }
 }

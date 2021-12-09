@@ -454,14 +454,14 @@ class PantCombate{
       switch(pers.terr){
 
           case CLBSQ: txtpoison.activate();
-                      bitacora.agregaDatosLn(typeGetDamege(pers));
+                      bitacora.agregaDatosLn(typeGetDamege(enemy));
                       break;
           case CLPST: txtice.activate();
-                      bitacora.agregaDatosLn(typeGetDamege(pers));
+                      bitacora.agregaDatosLn(typeGetDamege(enemy));
 
                       break;
           case CLTRR: txtfire.activate();
-                      bitacora.agregaDatosLn(typeGetDamege(pers));
+                      bitacora.agregaDatosLn(typeGetDamege(enemy));
                       break;            
       }
      
@@ -644,13 +644,14 @@ class PantCombate{
     return s;
   }
 
-  String typeGetDamege(Personaje p){
+  String typeGetDamege(Enemigo e){    
     String s="\n";
-    if(!perst.teamp) s=s+"Don Jhon recibio daño elemental por: ";
-    if(perst.teamp) s=s+"Chocobo recibio daño elemental por: ";
-    s=s+(p.terr==CLBSQ?"Veneno":(p.terr==CLPST?"Hielo":"Fuego"));
+    s=s+(!perst.teamp) ? "Don Jhon recibio daño elemental por: " : "Chocobo recibio daño elemental por: ";
+    s=s+e.terr==CLBSQ?"Veneno":(e.terr==CLPST?"Hielo":"Fuego")+"\n";
     return s;
   }
+
+  
 
   String registrodeCombate(Enemigo e, Personaje p,int ti,boolean t){
     int a;

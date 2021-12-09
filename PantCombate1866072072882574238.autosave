@@ -179,7 +179,6 @@ class PantCombate{
       battleactive=BATTLEOFF;
       gc.musicManager(MSCOFF,false);
       gc.setPantAct(PNMAP);
-      bitacora.agregaDatosLn("Se abandono el combate");
     }
     if(actionactive && btnatk.isClicked(x,y) && b==LEFT){
       btnatk.toggleMarked();
@@ -194,11 +193,10 @@ class PantCombate{
       txtdefup2.activate();
       combatAction(ACDEF);
       iniciaAccion();
-      println("boton de defensa");
-
     }
     
     if(actionactive && btnteam.isClicked(x,y) && b==LEFT){
+      bitacora.agregaDatosLn(cambioPersonaje(personaje));
       sfxteamc.trigger();
       
       if(!perst.teamp){
@@ -208,7 +206,6 @@ class PantCombate{
         perst.toggleTeam(); //de false a true
         pers.toggleTeam(); // de true a false
         iniciaAccion();
-        bitacora.agregaDatosLn("\nCambio de personaje: ------- Chocobo -------\n");
     }
       else{
 
@@ -216,7 +213,6 @@ class PantCombate{
         perst.toggleTeam(); //de true a false
         pers.toggleTeam(); // de false a true
         iniciaAccion();
-        bitacora.agregaDatosLn("\nCambio de personaje: ------- Don Jhon -------\n");
         
       }
 
@@ -236,39 +232,32 @@ class PantCombate{
     }
     if(actionactive && citpotn.isClicked(x,y) && b==LEFT){
 
-      accionConsumo(ITPTN); 
-      accionConsumo(ITPTN);
+      pers.consumeItem(ITPTN); 
+      perst.consumeItem(ITPTN);
       iniciaAccion();
 
     }
     if(actionactive && citfptn.isClicked(x,y) && b==LEFT){
      
-      accionConsumo(ITFPT);
-      accionConsumo(ITFPT);
+      pers.consumeItem(ITFPT);
+      perst.consumeItem(ITFPT);
       iniciaAccion();
 
     }
 
     if(actionactive && cittonic.isClicked(x,y) && b==LEFT){
       
-      accionConsumo(ITTNC);
-      accionConsumo(ITTNC);
+      pers.consumeItem(ITTNC);
+      perst.consumeItem(ITTNC);
       iniciaAccion();
     }
 
     if(actionactive && citalldef.isClicked(x,y) && b==LEFT){
-      accionConsumo(ITALLDEF);
-      accionConsumo(ITALLDEF);
+      pers.consumeItem(ITALLDEF);
+      perst.consumeItem(ITALLDEF);
       txtdefup.activate();
       iniciaAccion();
     }
-  }
-
-    void accionConsumo(int i){
-    pers.consumeItem(i);
-    perst.consumeItem(i);
-    bitacora.agregaDatosLn(registraConsumoItem(pers,i));
-    iniciaAccion();
   }
   
   void controlCombate(){
@@ -302,11 +291,9 @@ class PantCombate{
                     sfxsword.trigger();
                     if(!enemy.isAlive()){
                       enemy.playSfx(ENFXDED);
-                      resultVictory();
-                      bitacora.agregaDatosLn(generaDatosVictory());
-                                            
+                      resultVictory();                      
                     }
-                    bitacora.agregaDatosLn(registrodeCombate(enemy,pers,tirada,TURNP));
+                    bitacora.agregaDatosLn();agregaDatosLn(registrodeCombate(enemy,pers,tirada,TURNP));
                   }
                   if(atkp<defe){
                      txtresist.activate();
@@ -318,11 +305,6 @@ class PantCombate{
                   perst.toggleDefense();
     }
     cdt.activate();
-  }
-  String generaDatosVictory(){
-    String s="";
-    s="Enemigo derrotado";
-    return s;
   }
   
   void createEnemies(){
@@ -362,8 +344,6 @@ class PantCombate{
       enemy.activateCombat();
       playrlocked=false;
       enemylocked=false;
-      bitacora.agregaDatosLn(registraInicioCombate(enemy,pers));
-
       
     }
   }
@@ -453,15 +433,11 @@ class PantCombate{
 
       switch(pers.terr){
 
-          case CLBSQ: txtpoison.activate();
-                      bitacora.agregaDatosLn(typeGetDamege(pers));
+          case CLBSQ:  txtpoison.activate();
                       break;
-          case CLPST: txtice.activate();
-                      bitacora.agregaDatosLn(typeGetDamege(pers));
-
+          case CLPST:  txtice.activate();
                       break;
           case CLTRR: txtfire.activate();
-                      bitacora.agregaDatosLn(typeGetDamege(pers));
                       break;            
       }
      
@@ -593,17 +569,12 @@ class PantCombate{
     fasebatalla=FBEND;
     getLoot();
     result=RSVCT;
-    gc.musicManager(MSCOFF,false);
-    gc.musicManager(MSCON,true);
-    bitacora.agregaDatosLn(registraFinCombate(enemy,pers,result));
     nextFB();
   }
   
   void resultDefeat(){
     fasebatalla=FBEND;
     result=RSDFT;
-        bitacora.agregaDatosLn(registraFinCombate(enemy,pers,result));
-
     nextFB();
   }
   
@@ -629,70 +600,28 @@ class PantCombate{
 
   }
 
-  void changeTeam(int p){
-
-  }
-
-  String registraInicioCombate(Enemigo e, Personaje p){
-    String s="\n------------------------ Inicia nuevo combate ---------------------------\n";
-    s=s+"Terreno de combate: "+((e.terr==1)?"Desierto":(e.terr==2)?"Bosque":"Praderas")+"\n";
-    s=s+"Oponente:   -------------------------------- "+e.name+"\n";
-    s=s+"Nivel actual del enemigo: "+e.lvl+"   -------- Nivel actual de personaje: "+p.lvl+"\n";
-    s=s+"Nivel de ataque de enemigo: "+e.atk+"   ----- Nivel de ataque de personaje "+p.atk+"\n";
-    s=s+"Nivel de defensa de enemigo: "+e.def+"   ---- Nivel de defensa de personaje: "+p.def+"\n";
-    s=s+"Nivel de vida de enemigo: "+e.def+"   ------- Nivel de vida de personaje: "+p.hp+"\n";
-    return s;
-  }
-
-  String typeGetDamege(Personaje p){
-    String s="\n";
-    if(!perst.teamp) s=s+"Don Jhon recibio daño elemental por: ";
-    if(perst.teamp) s=s+"Chocobo recibio daño elemental por: ";
-    s=s+(p.terr==CLBSQ?"Veneno":(p.terr==CLPST?"Hielo":"Fuego"));
-    return s;
+  String cambioPersonaje(int p){
+      String s="Cambio de personaje a: " +((btnteam.isClicked(x,y))?"Chocobo":"Don Luis")+"\n"
   }
 
   String registrodeCombate(Enemigo e, Personaje p,int ti,boolean t){
     int a;
     int d;
-    String s="Acción\n";
+    String s="----------- Inicia combate --------------\n ";
     s=s+"Daño causado: "+ti+"\n";
-    s=s+"Vida restante de "+e.name+": "+e.hp+"\n";
     if(t){
       a=p.getAtkDamage()+ti;
       d=e.getDefDamage();
-      s=s+"Base de ataque: "+p.getAtkDamage()+" ------ Defensa de Enemigo: "+d+"\n";
-      s=s+"Resultado: "+((a>d)?"Ataque exitoso":"Ataque fallido")+"\n";
+      s=s+"AtkBaseP="+p.getAtkDamage()+",DefTE="+d+"\n";
+      s=s+"Resultado="+((a>d)?"EXITO":"FALLO")+"\n";
     }
     else{
       a=e.getAtkDamage()+ti;
       d=p.getDefDamage();
-      s=s+"Base de ataque: "+p.getAtkDamage()+" ------ Defensa de Enemigo: "+d+"\n";
-      s=s+"Resultado: "+((a>d)?"Ataque exitoso":"Ataque fallido")+"\n";
+      s=s+"AtkBaseE="+e.getAtkDamage()+",DefTP="+d+"\n";
+      s=s+"Resultado="+((a>d)?"EXITO":"FALLO")+"\n";
     }
     s=s+"Fin de registro\n";
-    return s;
-  }
-
-    String registraConsumoItem(Personaje p,int i){
-    String s="------------------------ Cosumo de item ------------------------\n";
-    s=s+(i==ITPTN?"Poción normal":(i==ITFPT?"Poción llena":i==ITTNC?"Tonico de poder":"Poción de defensa"))+" utilizado"+"\n";
-    s=s+"Efecto: "+(i==ITPTN?"Curación":(i==ITFPT?"Curación total":i==ITTNC?"Tonico de poder":"Aumento de defensa"))+"\n"; 
-    s=s+"Fin de registro\n";
-    return s;
-  }
-  
-  String registraFinCombate(Enemigo e, Personaje p,boolean v){
-    String s="\n";
-    if(v){
-      s=s+"Puntos de vida actuales: "+p.hp+"\n";
-      s=s+"----- Victoria -----"+"\n";
-    }
-    else{
-      s=s+"----- Derrota, fin del juego -----\n";
-    }
-    s=s+"Fin del combate\n";
-    s=s+"-------------------------------------------------------------------\n";
     return s;
   }
 

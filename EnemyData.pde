@@ -54,6 +54,9 @@ class EnemyData{
   PImage getSprite(){
     return loadImage("sprite/enemy/"+enemy.getString("sprite")+".png");
   }
+  String getEnemyName(){
+    return enemy.getString("sprite");
+  }
   
   String getSfxInt(){
     return enemy.getString("sfxint");

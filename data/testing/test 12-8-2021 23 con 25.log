@@ -1,0 +1,88 @@
+
+------------------------ Inicia nuevo combate ---------------------------
+Terreno de combate: Bosque
+Oponente:   -------------------------------- w2-redbone
+Nivel actual del enemigo: 2   -------- Nivel actual de personaje: 10
+Nivel de ataque de enemigo: 2   ----- Nivel de ataque de personaje 4
+Nivel de defensa de enemigo: 3   ---- Nivel de defensa de personaje: 3
+Nivel de vida de enemigo: 3   ------- Nivel de vida de personaje: 75
+
+Acción
+Daño causado: 7
+Vida restante de w2-redbone: 27
+Base de ataque: 40 ------ Defensa de Enemigo: 30
+Resultado: Ataque exitoso
+Fin de registro
+
+Acción
+Daño causado: 12
+Vida restante de w2-redbone: 7
+Base de ataque: 40 ------ Defensa de Enemigo: 30
+Resultado: Ataque exitoso
+Fin de registro
+
+
+Cambio de personaje: ------- Chocobo -------
+
+
+Puntos de vida actuales: 75
+----- Victoria -----
+Fin del combate
+-------------------------------------------------------------------
+
+Enemigo derrotado
+Acción
+Daño causado: 6
+Vida restante de w2-redbone: 0
+Base de ataque: 40 ------ Defensa de Enemigo: 30
+Resultado: Ataque exitoso
+Fin de registro
+
+Se compro:Poción de defensa, saldo: 40
+
+------------------------ Inicia nuevo combate ---------------------------
+Terreno de combate: Praderas
+Oponente:   -------------------------------- p2-needler
+Nivel actual del enemigo: 2   -------- Nivel actual de personaje: 10
+Nivel de ataque de enemigo: 2   ----- Nivel de ataque de personaje 4
+Nivel de defensa de enemigo: 3   ---- Nivel de defensa de personaje: 3
+Nivel de vida de enemigo: 3   ------- Nivel de vida de personaje: 75
+
+------------------------ Cosumo de item ------------------------
+Tonico de poder utilizado
+Efecto: Tonico de poder
+Fin de registro
+
+------------------------ Cosumo de item ------------------------
+Tonico de poder utilizado
+Efecto: Tonico de poder
+Fin de registro
+
+Acción
+Daño causado: 3
+Vida restante de p2-needler: 6
+Base de ataque: 60 ------ Defensa de Enemigo: 30
+Resultado: Ataque exitoso
+Fin de registro
+
+
+Puntos de vida actuales: 75
+----- Victoria -----
+Fin del combate
+-------------------------------------------------------------------
+
+Enemigo derrotado
+Acción
+Daño causado: 5
+Vida restante de p2-needler: 0
+Base de ataque: 60 ------ Defensa de Enemigo: 30
+Resultado: Ataque exitoso
+Fin de registro
+
+
+--------------------- Level Up -----------------------
+
+
+--------------------- Level Up -----------------------
+
+fin de test 12-8-2021 23 con 28

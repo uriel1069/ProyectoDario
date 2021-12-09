@@ -20,6 +20,7 @@ class Enemigo{
   String sfxint;
   String sfxatk;
   String sfxded;
+  String name;
   CoolDownTimer cdtturn;
   
   Enemigo(int t,DatosDados d){
@@ -36,6 +37,7 @@ class Enemigo{
     item=ed.getItem();
     cash=ed.getCash();
     sprite=ed.getSprite();
+    name=ed.getEnemyName();
     alive=LIVE;
     sfxint=ed.getSfxInt();
     sfxatk=ed.getSfxAtk();
